@@ -5,7 +5,7 @@
 </head>
 
 <body>
-My First JSP!!
+Good day ${name==null ? "" : name}!!
 </body>
 
 </html>
