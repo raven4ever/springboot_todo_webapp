@@ -5,7 +5,7 @@
 </head>
 
 <body>
-Good day ${name==null ? "" : name}!!
+Good day ${name}!!
 </body>
 
 </html>

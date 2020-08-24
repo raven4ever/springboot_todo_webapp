@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(@RequestParam(required = false) String name, ModelMap modelMap) {
-        modelMap.put("name", name);
+    public String login(@RequestParam Optional<String> name, ModelMap modelMap) {
+        modelMap.put("name", name.orElseGet(() -> ""));
         return "login";
     }
 }
