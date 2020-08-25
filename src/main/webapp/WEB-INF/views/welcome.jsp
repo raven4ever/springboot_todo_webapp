@@ -1,7 +1,8 @@
 <html>
 
 <head>
-    <title>First Web Application</title>
+    <title>Main Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>

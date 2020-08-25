@@ -31,9 +31,10 @@
         </tbody>
     </table>
     <div><a class="button" href="/add-todo">Add a Todo</a></div>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
 </div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 
 </html>
