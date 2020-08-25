@@ -1,14 +1,39 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 
 <head>
-    <title>First Web Application</title>
+    <title>Todo's for ${name}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-Here are the list of ${name}'s todos:
-${todos}.
-<BR/>
-<a href="/add-todo">Add a Todo</a>
+<div class="container">
+    <table class="table table-striped">
+        <caption style="caption-side:top;">Your TODOs</caption>
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th>Target Date</th>
+            <th>Completed?</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${todos}" var="todo">
+            <tr>
+                <td>${todo.desc}</td>
+                <td>${todo.targetDate}</td>
+                <td>${todo.done}</td>
+                <td><a type="button" class="btn btn-warning" href="/delete-todo?id=${todo.id}">Delete</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <div><a class="button" href="/add-todo">Add a Todo</a></div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
+</div>
 </body>
 
 </html>
