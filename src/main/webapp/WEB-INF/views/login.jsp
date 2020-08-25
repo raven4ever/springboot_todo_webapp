@@ -7,7 +7,7 @@
 <body>
 <h2>Hi there!</h2>
 
-<font color="red">${errorMessage}</font>
+<span style="color: red;">${errorMessage}</span>
 
 <form method="post">
     Name: <input type="text" name="name"/> <br/>
