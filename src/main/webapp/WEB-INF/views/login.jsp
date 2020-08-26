@@ -1,8 +1,9 @@
-<html>
+<%@ include file="common/tags.jspf" %>
 
+<html>
 <head>
     <title>Please log in!</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <%@ include file="common/csss.jspf" %>
 </head>
 
 <body>
@@ -12,7 +13,7 @@
 
 <form method="post">
     Name: <input type="text" name="name"/> <br/>
-    Password: <input type="password" name="password" /> <br/>
+    Password: <input type="password" name="password"/> <br/>
     <input type="submit"/>
 </form>
 

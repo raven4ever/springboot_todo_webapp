@@ -1,13 +1,14 @@
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ include file="common/tags.jspf" %>
 
 <html>
 <head>
     <title>Add TODO</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <%@ include file="common/csss.jspf" %>
 </head>
 
 <body>
+<%@ include file="common/navigation.jspf" %>
+
 <div class="container">
     <form:form method="post" modelAttribute="todo">
         <form:hidden path="id"/>
@@ -32,7 +33,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
     $('#targetDate').datepicker({
-        format : 'dd/mm/yyyy'
+        format: 'dd/mm/yyyy'
     });
 </script>
 </body>

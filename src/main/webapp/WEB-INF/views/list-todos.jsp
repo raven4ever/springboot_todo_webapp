@@ -1,14 +1,14 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="common/tags.jspf" %>
 
 <html>
-
 <head>
     <title>Todo's for ${name}</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <%@ include file="common/csss.jspf" %>
 </head>
 
 <body>
+<%@ include file="common/navigation.jspf" %>
+
 <div class="container">
     <table class="table table-striped">
         <caption style="caption-side:top;">Your TODOs</caption>
