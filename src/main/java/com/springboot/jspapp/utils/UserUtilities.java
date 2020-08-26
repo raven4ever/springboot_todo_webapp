@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.ModelMap;
 
 @Component
-public class Utilities {
+public class UserUtilities {
 
     public String getLoggedInUserName(ModelMap model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
