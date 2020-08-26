@@ -1,17 +1,17 @@
 package com.springboot.jspapp.services;
 
+import com.springboot.jspapp.model.Todo;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.springboot.jspapp.model.Todo;
-import org.springframework.stereotype.Service;
-
 
 @Service
 public class TodoService {
-    private static List<Todo> todos = new ArrayList<Todo>();
+    private static final List<Todo> todos = new ArrayList<Todo>();
     private static int todoCount = 3;
 
     static {
