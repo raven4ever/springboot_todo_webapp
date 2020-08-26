@@ -3,6 +3,7 @@ package com.springboot.jspapp.controllers;
 import com.springboot.jspapp.model.Todo;
 import com.springboot.jspapp.services.TodoService;
 import com.springboot.jspapp.utils.Utilities;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ import java.util.Date;
 
 @Controller
 @SessionAttributes("name")
+@Slf4j
 public class TodoController {
 
     @Autowired
@@ -45,16 +47,21 @@ public class TodoController {
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
-        model.addAttribute(new Todo(0, utilities.getLoggedInUserName(model), "A new TODO", new Date(), false));
+        model.addAttribute(new Todo(0, utilities.getLoggedInUserName(model), "A new TODO", new Date()));
         return "todo";
     }
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.POST)
     public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
+        log.info("1");
         if (result.hasErrors()) {
+            result.getFieldErrors().forEach(System.out::println);
+            log.info("66");
             return "todo";
         }
-        service.addTodo(utilities.getLoggedInUserName(model), todo.getDesc(), todo.getTargetDate(), false);
+        log.info("2");
+        service.addTodo(utilities.getLoggedInUserName(model), todo.getDesc(), todo.getTargetDate());
+        log.info("3");
         return "redirect:/list-todos";
     }
 
