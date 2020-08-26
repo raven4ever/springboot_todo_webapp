@@ -29,8 +29,14 @@
             </tr>
         </c:forEach>
         </tbody>
+        <tfoot>
+        <tr>
+            <td>
+                <div><a class="button" href="/add-todo">Add a Todo</a></div>
+            </td>
+        </tr>
+        </tfoot>
     </table>
-    <div><a class="button" href="/add-todo">Add a Todo</a></div>
 </div>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
