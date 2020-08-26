@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@SessionAttributes("name")
 public class TodoController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class TodoController {
     public String showTodos(ModelMap model) {
         String name = utilities.getLoggedInUserName(model);
         model.put("todos", service.retrieveTodos(name));
+        model.put("name", name);
         return "list-todos";
     }
 

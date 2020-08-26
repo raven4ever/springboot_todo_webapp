@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Todo's for ${name}</title>
+    <title>TODOs for ${name}</title>
     <%@ include file="common/csss.jspf" %>
 </head>
 
@@ -11,7 +11,7 @@
 
 <div class="container">
     <table class="table table-striped">
-        <caption style="caption-side:top;">Your TODOs</caption>
+        <caption style="caption-side:top;">Manage your TODOs</caption>
         <thead>
         <tr>
             <th>Description</th>

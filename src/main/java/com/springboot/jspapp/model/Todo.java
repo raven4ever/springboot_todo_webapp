@@ -2,7 +2,7 @@ package com.springboot.jspapp.model;
 
 import lombok.Data;
 
-import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -14,7 +14,7 @@ public class Todo {
     private String user;
     @Size(min = 10, message = "Enter at least 10 Characters!")
     private String desc;
-    @Future(message = "Date must be in the future!")
+    @FutureOrPresent(message = "Date must be in the future!")
     private Date targetDate;
     private boolean isDone;
 

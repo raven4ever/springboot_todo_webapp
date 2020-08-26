@@ -2,14 +2,18 @@
 
 <html>
 <head>
-    <title>Main Page</title>
+    <title>Hello!</title>
     <%@ include file="common/csss.jspf" %>
 </head>
 
 <body>
 <%@ include file="common/navigation.jspf" %>
 
-Welcome ${name}!! <a href="/list-todos">Click here</a> to manage your todo's.
-</body>
+<div class="container">
+    <div class="text-center">
+        <img src="/images/todo_welcome.png" class="rounded" alt="todo_hello" width="300" height="300">
+    </div>
+</div>
 
+</body>
 </html>

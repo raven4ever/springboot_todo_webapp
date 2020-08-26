@@ -18,5 +18,4 @@ public class WelcomeController {
         model.put("name", utilities.getLoggedInUserName(model));
         return "welcome";
     }
-
 }

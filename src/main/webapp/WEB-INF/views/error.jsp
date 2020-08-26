@@ -10,7 +10,10 @@
 <%@ include file="common/navigation.jspf" %>
 
 <div class="container">
-    An exception occurred! Please contact Support!
+    <div class="text-center">
+        <img src="/images/error.png" class="rounded" alt="error" height="150" width="300"></br>
+        An exception occurred! Please contact Support or not!
+    </div>
 </div>
 </body>
 
