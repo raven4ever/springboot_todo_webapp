@@ -48,6 +48,7 @@ public class TodoController {
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
         model.addAttribute(new Todo(0, userUtilities.getLoggedInUserName(model), "A new TODO", new Date()));
+        model.addAttribute("isAddAction", "true");
         return "todo";
     }
 
@@ -55,6 +56,7 @@ public class TodoController {
     public String addTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
         if (result.hasErrors()) {
             result.getFieldErrors().forEach(err -> log.warn(err.toString()));
+            model.addAttribute("isAddAction", "true");
             return "todo";
         }
         service.addTodo(userUtilities.getLoggedInUserName(model), todo.getDesc(), todo.getTargetDate());
@@ -71,6 +73,7 @@ public class TodoController {
     public String showUpdateTodoPage(@RequestParam int id, ModelMap model) {
         Todo todo = service.retrieveTodo(id);
         model.put("todo", todo);
+        model.addAttribute("isAddAction", "false");
         return "todo";
     }
 
@@ -78,11 +81,11 @@ public class TodoController {
     public String updateTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
         if (result.hasErrors()) {
             result.getFieldErrors().forEach(err -> log.warn(err.toString()));
+            model.addAttribute("isAddAction", "false");
             return "todo";
         }
         todo.setUser(userUtilities.getLoggedInUserName(model));
         service.updateTodo(todo);
         return "redirect:/list-todos";
     }
-
 }

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Add TODO</title>
+    <title>TODO</title>
     <%@ include file="common/csss.jspf" %>
 </head>
 
@@ -24,7 +24,19 @@
             <form:errors path="targetDate" cssClass="text-warning"/>
         </fieldset>
 
-        <button type="submit" class="btn btn-success">Add</button>
+        <c:choose>
+            <c:when test="${isAddAction}">
+                <button type="submit" class="btn btn-success">Add</button>
+            </c:when>
+            <c:otherwise>
+                <fieldset class="form-group">
+                    <form:label path="done">Is Completed?</form:label>
+                    <form:checkbox path="done"/>
+                </fieldset>
+
+                <button type="submit" class="btn btn-success">Update</button>
+            </c:otherwise>
+        </c:choose>
     </form:form>
 </div>
 

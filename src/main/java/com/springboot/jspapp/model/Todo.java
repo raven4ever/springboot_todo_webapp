@@ -1,13 +1,15 @@
 package com.springboot.jspapp.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
-public class Todo {
+@EqualsAndHashCode(of = "id")
+public class Todo implements Comparable<Todo> {
 
     private int id;
     private String user;
@@ -22,6 +24,11 @@ public class Todo {
         this.user = user;
         this.desc = desc;
         this.targetDate = targetDate;
+    }
+
+    @Override
+    public int compareTo(Todo o) {
+        return this.targetDate.compareTo(o.getTargetDate());
     }
 }
 
