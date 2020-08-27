@@ -2,7 +2,7 @@ package com.springboot.jspapp.controllers;
 
 import com.springboot.jspapp.model.Todo;
 import com.springboot.jspapp.services.TodoService;
-import com.springboot.jspapp.utils.UserUtilities;
+import com.springboot.jspapp.utils.Utilities;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -28,7 +28,7 @@ public class TodoController {
     @Autowired
     private TodoService service;
     @Autowired
-    private UserUtilities userUtilities;
+    private Utilities utilities;
     @Autowired
     private SimpleDateFormat dateFormat;
 
@@ -39,15 +39,15 @@ public class TodoController {
 
     @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
     public String showTodos(ModelMap model) {
-        String name = userUtilities.getLoggedInUserName(model);
+        String name = utilities.getLoggedInUserName(model);
         model.put("todos", service.retrieveTodos(name));
-        model.put("name", userUtilities.getLoggedInUserName(model));
+        model.put("name", utilities.getLoggedInUserName(model));
         return "list-todos";
     }
 
     @RequestMapping(value = "/add-todo", method = RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
-        model.addAttribute(new Todo(0, userUtilities.getLoggedInUserName(model), "A new TODO", new Date()));
+        model.addAttribute(new Todo(0, utilities.getLoggedInUserName(model), "A new TODO", new Date()));
         model.addAttribute("isAddAction", "true");
         return "todo";
     }
@@ -59,7 +59,7 @@ public class TodoController {
             model.addAttribute("isAddAction", "true");
             return "todo";
         }
-        service.addTodo(userUtilities.getLoggedInUserName(model), todo.getDesc(), todo.getTargetDate());
+        service.addTodo(utilities.getLoggedInUserName(model), todo.getDesc(), todo.getTargetDate());
         return "redirect:/list-todos";
     }
 
@@ -84,7 +84,7 @@ public class TodoController {
             model.addAttribute("isAddAction", "false");
             return "todo";
         }
-        todo.setUser(userUtilities.getLoggedInUserName(model));
+        todo.setUser(utilities.getLoggedInUserName(model));
         service.updateTodo(todo);
         return "redirect:/list-todos";
     }
